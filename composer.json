@@ -1,6 +1,6 @@
 {
   "name": "drupal/recalendar",
-  "type": "drupal-module-custom",
+  "type": "drupal-module",
   "description": "Integrates fullcalendar.js and supports recurring dates",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
