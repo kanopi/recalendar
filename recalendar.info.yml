@@ -1,0 +1,11 @@
+name: 'Recalendar'
+type: module
+description: 'Integrates fullcalendar,js API with support for recurring dates'
+core: 8.x
+package: 'Custom'
+configure: recalendar.recalendar_settings
+dependencies:
+  - drupal:date_recur
+  - drupal:date_recur_interactive
+  - drupal:rest
+  - drupal:serialization

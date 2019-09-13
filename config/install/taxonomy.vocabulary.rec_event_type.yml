@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Recalendar Event Type'
+vid: rec_event_type
+description: 'Use to categorize Recalendar Event nodes.'
+weight: 0

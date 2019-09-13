@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Recalendar Event'
+type: rec_event
+description: 'Use the <em>Recalendar Event</em> content type for recurring and non-recurring calendar entries and event details pages.'
+help: 'Use the <em>Recalendar Event</em> content type for recurring and non-recurring calendar entries and event details pages.'
+new_revision: false
+preview_mode: 1
+display_submitted: false

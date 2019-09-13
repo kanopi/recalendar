@@ -1,0 +1,7 @@
+recalendar.recalendar_settings:
+  title: 'Recalendar'
+  route_name: recalendar.recalendar_settings
+  description: 'Configure Recalendar settings.'
+  parent: system.admin_config_services
+  weight: 99
+
