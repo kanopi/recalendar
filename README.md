@@ -19,6 +19,9 @@ There are a number of Drupal 8 modules that have the same goal, but they do not 
 REQUIREMENTS
 ------------
 
+### PHP
+Only works with PHP 7.1 and higher.
+
 ### Core Modules
 The Rest and Serialization modules in Drupal core will be enabled during installation.
 
@@ -26,8 +29,11 @@ The Rest and Serialization modules in Drupal core will be enabled during install
 
 * Recurring Dates Field - https://www.drupal.org/project/date_recur
 
+    `composer require drupal/date_recur:2.0`
+
 * Interactive widget for Recurring Dates Field - https://www.drupal.org/project/date_recur_interactive
 
+    `composer require drupal/date_recur_interactive`
 ### Patches
 
 The following date_recur_interactive patches are not strictly required, but are highly recommended.
@@ -46,9 +52,13 @@ The required external javascripts are included in this module.
 
 INSTALLATION
 ------------
+### Composer Install
+
+### Steps
 
 1. Install the required contributed modules (see above).
-1. Install Recalendar module (Todo: add composer instructions)
+1. Install Recalendar module (private github repo only available to Kanopi developers)
+    `composer require kanopi/recalendar`
 1. Enable Recalendar module
 1. Navigate to /recalendar and you will see an empty calendar
 1. You will now have a taxonomy vocabulary called "Recalendar Event Type"
@@ -74,8 +84,8 @@ MAINTAINERS
 -----------
 
 ### Current Maintainers
-Anne Bonham (https://www.drupal.org/u/banoodle)
-Jim Birch (https://www.drupal.org/u/thejimbirch)
+* Anne Bonham (https://www.drupal.org/u/banoodle)
+* Jim Birch (https://www.drupal.org/u/thejimbirch)
 
 ### Sponsored By
-Kanopi Studios (https://kanopi.com/)
+* Kanopi Studios (https://kanopi.com/)
