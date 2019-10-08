@@ -4,11 +4,11 @@
   "description": "Integrates fullcalendar.js and supports recurring dates",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "homepage": "https://www.drupal.org/project/recalendar",
-  "minimum-stability": "dev",
+  "homepage": "https://github.com/kanopi/recalendar",
+  "minimum-stability": "alpha",
   "support": {
-    "issues": "https://www.drupal.org/project/issues/recalendar",
-    "source": "http://cgit.drupalcode.org/recalendar"
+    "issues": "https://github.com/kanopi/recalendar",
+    "source": "https://github.com/kanopi/recalendar"
   },
   "require": {
     "drupal/date_recur": "2.0",
