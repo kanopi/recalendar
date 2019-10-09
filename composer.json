@@ -5,7 +5,7 @@
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
   "homepage": "https://github.com/kanopi/recalendar",
-  "minimum-stability": "alpha",
+  "minimum-stability": "dev",
   "support": {
     "issues": "https://github.com/kanopi/recalendar",
     "source": "https://github.com/kanopi/recalendar"
