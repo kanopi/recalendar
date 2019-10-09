@@ -10,6 +10,12 @@
     "issues": "https://github.com/kanopi/recalendar",
     "source": "https://github.com/kanopi/recalendar"
   },
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  },
   "require": {
     "drupal/date_recur": "2.0",
     "drupal/date_recur_interactive": "^2.0@alpha"
