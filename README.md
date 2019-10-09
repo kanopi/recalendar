@@ -38,7 +38,7 @@ The following contributed modules will be automatically installed when you use c
     `composer require drupal/date_recur_interactive`
 ### Patches
 
-The following date_recur_interactive patches are not strictly required, but are highly recommended.
+The following date_recur_interactive patches are applied during installation.
 
 * Issue #2923774: Repeat rule widget always fills default day value in Weekly options: https://www.drupal.org/files/issues/2018-12-08/2923774-date_recur-weekly_wrong_day-11.patch
 
