@@ -27,6 +27,8 @@ The Rest and Serialization modules in Drupal core will be enabled during install
 
 ### Contributed Modules
 
+The following contributed modules will be automatically installed when you use composer to install
+
 * Recurring Dates Field - https://www.drupal.org/project/date_recur
 
     `composer require drupal/date_recur:2.0`
@@ -54,11 +56,22 @@ INSTALLATION
 ------------
 ### Composer Install
 
-### Steps
+The following command installs Recalendar, its dependencies (date_recur and date_recur_interactive) and applies 2 patches to date_recur_interactive.
 
-1. Install the required contributed modules (see above).
-1. Install Recalendar module (private github repo only available to Kanopi developers)
-    `composer require kanopi/recalendar`
+`composer require kanopi/recalendar`
+
+CONFIGURATION
+-------------
+
+### Permissions
+There is an "Allow administration of Recalendar settings" permission that can be granted to additional roles (admin role has this permission by default).
+
+### Config
+By default, the calendar provided by this module is available at /recalendar. This can be changed at /admin/config/recalendar. Remember to rebuild caches after making this config change.
+
+USAGE
+-----
+
 1. Enable Recalendar module
 1. Navigate to /recalendar and you will see an empty calendar
 1. You will now have a taxonomy vocabulary called "Recalendar Event Type"
@@ -71,14 +84,6 @@ INSTALLATION
 
 Note: if you want to change the /recalendar path alias and page title to something else (e.g., /calendar or /events), you can change it at /admin/config/recalendar. Remember to rebuild caches after making this config change.
 
-CONFIGURATION
--------------
-
-### Permissions
-There is an "Allow administration of Recalendar settings" permission that can be granted to additional roles (admin role has this permission by default).
-
-### Config
-By default, the calendar provided by this module is available at /recalendar. This can be changed at /admin/config/recalendar. Remember to rebuild caches after making this config change.
 
 MAINTAINERS
 -----------
@@ -86,6 +91,7 @@ MAINTAINERS
 ### Current Maintainers
 * Anne Bonham (https://www.drupal.org/u/banoodle)
 * Jim Birch (https://www.drupal.org/u/thejimbirch)
+* Sean Dietrich (https://www.drupal.org/u/sean_e_dietrich)
 
 ### Sponsored By
 * Kanopi Studios (https://kanopi.com/)
