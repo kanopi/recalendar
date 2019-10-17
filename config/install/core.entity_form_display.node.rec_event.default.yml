@@ -9,8 +9,6 @@ dependencies:
     - content_moderation
     - date_recur_interactive
     - path
-_core:
-  default_config_hash: 3WOjqML14thJevyEExkpj3wgvI5dscTOA3Y4_A2v7vo
 id: node.rec_event.default
 targetEntityType: node
 bundle: rec_event

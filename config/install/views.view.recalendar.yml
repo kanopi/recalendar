@@ -12,8 +12,6 @@ dependencies:
     - rest
     - serialization
     - user
-_core:
-  default_config_hash: yD-NnOxna7jJVwJL-Ygq_O_Fuyi8iB1is7q5wmFwQR0
 id: recalendar
 label: Recalendar
 module: views
