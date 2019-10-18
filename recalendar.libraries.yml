@@ -1,14 +1,13 @@
 eventscalendar:
   css:
     theme:
-      lib/fullcalendar.css: {}
+      '//cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.css': {type: external, minified: true}
       lib/recalendar.css: {}
       '//fonts.googleapis.com/css?family=Rubik:300,400,500,700|Source+Sans+Pro:300,400,500,700': { type: external, minified: true }
   js:
-    lib/moment.js: {}
-    lib/fullcalendar.js: {}
+    '//cdn.jsdelivr.net/npm/@fullcalendar/moment@4.3.0/main.min.js': {type: external, minified: true}
+    '//cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.js': {type: external, minified: true}
     lib/eventsinit.js: {}
-
   dependencies:
     - core/jquery
     - core/drupal
