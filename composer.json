@@ -14,11 +14,39 @@
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
+    },
+    "recalendar" : {
+      "type": "package",
+      "package": {
+        "name": "fullcalendar/fullcalendar",
+        "version": "3.10.0",
+        "type": "npm-package",
+        "source": {
+          "type": "git",
+          "reference": "presentation",
+          "url": "git@github.com:my-org/react-app.git"
+        }
+      }
+    },
+    "moment" : {
+      "type": "package",
+      "package": {
+        "name": "my-org/react-app",
+        "version": "1.0",
+        "type": "npm-package",
+        "source": {
+          "type": "git",
+          "reference": "presentation",
+          "url": "git@github.com:my-org/react-app.git"
+        }
+      }
     }
   },
   "require": {
     "drupal/date_recur": "2.0",
-    "drupal/date_recur_interactive": "^2.0@alpha"
+    "drupal/date_recur_interactive": "^2.0@alpha",
+    "oomphinc/composer-installers-extender": "dev-master",
+    "webflo/drupal-finder": "dev-master"
   },
   "extra": {
     "patches": {
@@ -27,5 +55,8 @@
         "Issue #3047074: RDATE & EXDATE not time/zone aware": "https://www.drupal.org/files/issues/2019-04-24/3047074-rdate-exdate-timezone-8.patch"
       }
     }
+  },
+  "scripts": {
+    "npm-install": "npm install --save @fullcalendar/core @fullcalendar/moment"
   }
 }
