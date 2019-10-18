@@ -1,12 +1,12 @@
 eventscalendar:
   css:
     theme:
-      node_modules/@fullcalendar/core/main.min.css: {}
+      lib/fullcalendar.css: {}
       lib/recalendar.css: {}
       '//fonts.googleapis.com/css?family=Rubik:300,400,500,700|Source+Sans+Pro:300,400,500,700': { type: external, minified: true }
   js:
-    node_modules/@fullcalendar/moment/main.min.js: {}
-    node_modules/@fullcalendar/core/main.min.js: {}
+    lib/moment.js: {}
+    lib/fullcalendar.js: {}
     lib/eventsinit.js: {}
 
   dependencies:
