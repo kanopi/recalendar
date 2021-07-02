@@ -1,10 +1,11 @@
 <?php
 
 namespace Drupal\recalendar\Routing;
+
 use Symfony\Component\Routing\Route;
 
 /**
- * Provides route for recalendar that reflects admin-configured path alias (/admin/config/recalendar).
+ * Provides route for recalendar that reflects admin-configured path alias.
  */
 class RecalendarRoutes {
 
@@ -21,23 +22,22 @@ class RecalendarRoutes {
 
     // If recalendar alias hasn't been set.
     if ($setting === '') {
-        $alias = 'recalendar';
+      $alias = 'recalendar';
     }
     else {
-        $alias = $setting;
+      $alias = $setting;
     }
     $routes = [];
 
     // Returns an array of Route objects.
     $routes['recalendar.events'] = new Route(
-
       // Path to attach this route to:
       $alias,
 
       // Route defaults:
       [
-        '_controller' => '\Drupal\recalendar\Controller\RecalendarController::Events',
-        '_title' => $alias
+        '_controller' => '\Drupal\recalendar\Controller\RecalendarController::events',
+        '_title' => $alias,
       ],
 
       // Route requirements:

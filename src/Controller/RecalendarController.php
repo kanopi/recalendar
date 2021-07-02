@@ -1,4 +1,5 @@
 <?php
+
 namespace Drupal\recalendar\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
@@ -15,7 +16,7 @@ class RecalendarController extends ControllerBase {
    * @return array
    *   A simple renderable array.
    */
-  public function Events() {
+  public function events() {
 
     // Get options from Event Type taxonomy vocabulary.
     $type_query = \Drupal::entityQuery('taxonomy_term');
@@ -29,9 +30,10 @@ class RecalendarController extends ControllerBase {
       // Loads taxonomy term using tid.
       $type_term = Term::load($type_tid);
 
-      // We ultimately need option value to equal term tid, but Drupal will convert any integer we provide as an option
-      // into a sequential integer starting with 0. So we make it a string by prefixing it with term, which we strip on
-      // page load using jQuery replace.
+      // We ultimately need option value to equal term tid, but Drupal will
+      // convert any integer we provide as an option into a sequential integer
+      // starting with 0. So we make it a string by prefixing it with term,
+      // which we strip on page load using jQuery replace.
       $type_filter_key = 'term' . $type_tid;
 
       // Gets taxonomy term name.
@@ -41,14 +43,14 @@ class RecalendarController extends ControllerBase {
       $type_term_names[$type_filter_key] = $type_filter_name;
     }
     // Add All option to start of array.
-    array_unshift($type_term_names,"All Events");
+    array_unshift($type_term_names, "All Events");
 
     $element = [
       // Select list for js filtering of events by type.
       $form['event_type'] = [
         '#type' => 'select',
         '#prefix' => '<div class="grid-x grid-margin-x calendar-filters"><span class="filters-wrapper">',
-        '#multiple' => false,
+        '#multiple' => FALSE,
         '#options' => $type_term_names,
         '#attributes' => [
           'id' => 'event_type',
@@ -56,23 +58,24 @@ class RecalendarController extends ControllerBase {
             'cell',
             'small-12',
             'medium-4',
-          ]
+          ],
         ],
       ],
 
-      // Select list for js filtering of events by month and year. JS will provide the options.
+      // Select list for js filtering of events by month and year.
+      // JS will provide the options.
       $form['event_date'] = [
         '#type' => 'select',
-        '#multiple' => false,
+        '#multiple' => FALSE,
         '#attributes' => [
           'id' => 'event_date',
           'class' => [
             'cell',
             'small-12',
             'medium-4',
-          ]
+          ],
         ],
-        '#suffix' => '</span></div>'
+        '#suffix' => '</span></div>',
       ],
       $form['meeting_calendar'] = [
         '#markup' => '<div id="calendar">&nbsp;</div>',
