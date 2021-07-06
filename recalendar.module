@@ -44,13 +44,13 @@ function recalendar_rebuild() {
 
   // Create and designate the directory.
   $directory = 'public://data/';
-  file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
+  Drupal\Core\File\FileSystemInterface::prepareDirectory($directory, Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
 
 
   $view_events_out = $view_events->render();
   $events = $view_events_out['#markup']->__toString();
 
    // Save view data export to file.
-   file_unmanaged_save_data($events, $directory . 'data_export_events.json', FILE_EXISTS_REPLACE);
+   Drupal\Core\File\FileSystemInterface::saveData($events, $directory . 'data_export_events.json', Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
 
  }
