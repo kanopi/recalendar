@@ -17,15 +17,7 @@
     }
   },
   "require": {
-    "drupal/date_recur": "2.2",
-    "drupal/date_recur_interactive": "^2.0@alpha"
+    "drupal/date_recur": "2.2"
   },
-  "extra": {
-    "patches": {
-      "drupal/date_recur_interactive": {
-        "Issue #2923774: Repeat rule widget always fills default day value in Weekly options": "https://www.drupal.org/files/issues/2018-12-08/2923774-date_recur-weekly_wrong_day-11.patch",
-        "Issue #3047074: RDATE & EXDATE not time/zone aware": "https://www.drupal.org/files/issues/2019-04-24/3047074-rdate-exdate-timezone-8.patch"
-      }
-    }
-  }
+  "extra": {}
 }

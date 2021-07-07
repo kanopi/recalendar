@@ -6,6 +6,5 @@ package: 'Custom'
 configure: recalendar.recalendar_settings
 dependencies:
   - drupal:date_recur
-  - drupal:date_recur_interactive
   - drupal:rest
   - drupal:serialization
