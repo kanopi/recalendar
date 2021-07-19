@@ -2,7 +2,7 @@ recalendar.events_endpoint:
   path: '/v1/events_endpoint'
   methods:  [GET]
   defaults:
-    _controller: '\Drupal\recalendar\Controller\RecalendarEndpointController::EventsEndpoint'
+    _controller: '\Drupal\recalendar\Controller\RecalendarEndpointController::eventsEndpoint'
     _title: 'Events Endpoint'
   requirements:
     _permission: 'access content'
