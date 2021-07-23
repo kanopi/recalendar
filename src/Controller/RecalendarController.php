@@ -11,6 +11,43 @@ use Drupal\taxonomy\Entity\Term;
 class RecalendarController extends ControllerBase {
 
   /**
+   * QueryFactory for entity queries.
+   *
+   * @var \Drupal\sfsd_recalendar\Plugin\Block\QueryFactory
+   */
+  private $entityQuery;
+
+  /**
+   * EntityManager..
+   *
+   * @var \Drupal\sfsd_recalendar\Plugin\Block\EntityManager
+   */
+  private $entityManager;
+
+  /**
+   * Taxonomy terms.
+   *
+   * @var \Drupal\sfsd_recalendar\Plugin\Block\Term
+   */
+  private $term;
+
+  /**
+   * RecalendarBlock constructor.
+   *
+   * @param \Drupal\sfsd_recalendar\Plugin\Block\QueryFactory $entityQuery
+   *   For EntityQuery.
+   * @param \Drupal\sfsd_recalendar\Plugin\Block\EntityManager $entityManager
+   *   For EntityManager.
+   * @param \Drupal\sfsd_recalendar\Plugin\Block\Term $typeTerm
+   *   For Term.
+   */
+  public function __construct(QueryFactory $entityQuery, EntityManager $entityManager, Term $typeTerm) {
+    $this->entityQuery = $entityQuery;
+    $this->entityManager = $entityManager;
+    $this->term = $typeTerm;
+  }
+
+  /**
    * Returns a simple page.
    *
    * @return array
@@ -19,7 +56,7 @@ class RecalendarController extends ControllerBase {
   public function events() {
 
     // Get options from Event Type taxonomy vocabulary.
-    $type_query = \Drupal::entityQuery('taxonomy_term');
+    $type_query = $this->entityQuery('taxonomy_term');
     $type_query->condition('vid', "rec_event_type");
     $type_tids = $type_query->execute();
 
@@ -28,12 +65,14 @@ class RecalendarController extends ControllerBase {
     foreach ($type_tids as $type_tid) {
 
       // Loads taxonomy term using tid.
-      $type_term = Term::load($type_tid);
+      $type_term = $this->load($type_tid);
 
-      // We ultimately need option value to equal term tid, but Drupal will
-      // convert any integer we provide as an option into a sequential integer
-      // starting with 0. So we make it a string by prefixing it with term,
-      // which we strip on page load using jQuery replace.
+      /*
+       * We need option value to equal term tid, but Drupal will convert any
+       * integer we provide as an option into a sequential integer starting with
+       * 0. So we make it a string by prefixing it with term, which we strip on
+       * page load using jQuery replace.
+       */
       $type_filter_key = 'term' . $type_tid;
 
       // Gets taxonomy term name.
@@ -63,7 +102,6 @@ class RecalendarController extends ControllerBase {
       ],
 
       // Select list for js filtering of events by month and year.
-      // JS will provide the options.
       $form['event_date'] = [
         '#type' => 'select',
         '#multiple' => FALSE,

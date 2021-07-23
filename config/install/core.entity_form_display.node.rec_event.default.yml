@@ -7,7 +7,7 @@ dependencies:
     - node.type.rec_event
   module:
     - content_moderation
-    - date_recur_interactive
+    - date_recur_modular
     - path
 id: node.rec_event.default
 targetEntityType: node
@@ -33,7 +33,7 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: date_recur_interactive_widget
+    type: date_recur_modular
     region: content
   field_rec_event_type:
     weight: 2

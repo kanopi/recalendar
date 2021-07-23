@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\File\FileSystemInterface;
+
 /**
  * @file
  * Functions and hooks for Recalendar module.
@@ -44,13 +46,13 @@ function recalendar_rebuild() {
 
   // Create and designate the directory.
   $directory = 'public://data/';
-  Drupal\Core\File\FileSystemInterface::prepareDirectory($directory, Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
+   \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
 
 
   $view_events_out = $view_events->render();
   $events = $view_events_out['#markup']->__toString();
 
    // Save view data export to file.
-   Drupal\Core\File\FileSystemInterface::saveData($events, $directory . 'data_export_events.json', Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
+   \Drupal::service('file_system')->saveData($events, $directory . 'data_export_events.json', FileSystemInterface::EXISTS_REPLACE);
 
  }

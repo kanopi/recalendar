@@ -27,22 +27,13 @@ The Rest and Serialization modules in Drupal core will be enabled during install
 
 ### Contributed Modules
 
-The following contributed modules will be automatically installed when you use composer to install
+The following contributed module will be automatically installed when you use composer to install
 
 * Recurring Dates Field - https://www.drupal.org/project/date_recur
 
     `composer require drupal/date_recur:2.0`
 
-* Interactive widget for Recurring Dates Field - https://www.drupal.org/project/date_recur_interactive
-
-    `composer require drupal/date_recur_interactive`
-### Patches
-
-The following date_recur_interactive patches are applied during installation.
-
-* Issue #2923774: Repeat rule widget always fills default day value in Weekly options: https://www.drupal.org/files/issues/2018-12-08/2923774-date_recur-weekly_wrong_day-11.patch
-
-* Issue #3047074: RDATE & EXDATE not time/zone aware: https://www.drupal.org/files/issues/2019-04-24/3047074-rdate-exdate-timezone-8.patch
+It is recommended that you install the Recurring Date Field Modular Widgets module in order to have a nice widget for the recurring date field.
 
 ### Libraries
 
@@ -56,7 +47,7 @@ INSTALLATION
 ------------
 ### Composer Install
 
-The following command installs Recalendar, its dependencies (date_recur and date_recur_interactive) and applies 2 patches to date_recur_interactive.
+The following command installs Recalendar, its dependencies (date_recur).
 
 `composer require kanopi/recalendar`
 
