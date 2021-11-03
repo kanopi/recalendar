@@ -15,21 +15,21 @@ class RecalendarController extends ControllerBase {
    *
    * @var \Drupal\sfsd_recalendar\Plugin\Block\QueryFactory
    */
-  private $entityQuery;
+  protected $entityQuery;
 
   /**
    * EntityManager..
    *
    * @var \Drupal\sfsd_recalendar\Plugin\Block\EntityManager
    */
-  private $entityManager;
+  protected $entityManager;
 
   /**
    * Taxonomy terms.
    *
    * @var \Drupal\sfsd_recalendar\Plugin\Block\Term
    */
-  private $term;
+  protected $term;
 
   /**
    * RecalendarBlock constructor.
