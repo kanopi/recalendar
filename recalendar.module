@@ -1,58 +1,37 @@
 <?php
 
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\views\Views;
 
 /**
- * @file
- * Functions and hooks for Recalendar module.
+ * Implements hook_page_attachments().
  */
 function recalendar_page_attachments(array &$page) {
-
-  // Caching.
-  $variables['page']['#cache']['contexts'][] = 'route';
-
-  // Attach recalendar library assets.
-  if (\Drupal::routeMatch()->getRouteName() == 'recalendar.events') {
+  if (Drupal::routeMatch()->getRouteName() == 'recalendar.events') {
     $page['#attached']['library'][] = 'recalendar/eventscalendar';
   }
 }
 
 /**
- * Implements hook_rebuild().
- */
-function recalendar_rebuild() {
-
-  // Get the view results
-  $viewId = 'recalendar';
-  $displayId = 'rest_export_1';
-
-  // Get the view
-  \Drupal\views\Views::getView($viewId, $displayId);
-
-}
-
-/**
  * Implements hook_cron().
- * Exports results of recalendar view to file for enhanced performance.
  */
- function recalendar_cron() {
+function recalendar_cron(): void {
+  $view_events = Views::getView('recalendar', );
+  $view_events->setDisplay('rest_export_1');
 
-  $view_id = 'recalendar';
-  $display_events = 'rest_export_1';
-
-  $view_events = \Drupal\views\Views::getView($view_id);
-
-  $view_events->setDisplay($display_events);
-
-  // Create and designate the directory.
   $directory = 'public://data/';
-   \Drupal::service('file_system')->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
 
+  Drupal::service('file_system')->prepareDirectory(
+    $directory,
+    FileSystemInterface::CREATE_DIRECTORY
+  );
 
   $view_events_out = $view_events->render();
-  $events = $view_events_out['#markup']->__toString();
+  $events = (string) $view_events_out['#markup'];
 
-   // Save view data export to file.
-   \Drupal::service('file_system')->saveData($events, $directory . 'data_export_events.json', FileSystemInterface::EXISTS_REPLACE);
-
- }
+  Drupal::service('file_system')->saveData(
+    $events,
+    $directory . 'data_export_events.json',
+    FileSystemInterface::EXISTS_REPLACE
+  );
+}

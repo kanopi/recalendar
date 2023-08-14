@@ -1,19 +1,20 @@
 recalendar.events_endpoint:
-  path: '/v1/events_endpoint'
-  methods:  [GET]
+  path: /v1/events_endpoint
+  methods:  [ GET ]
   defaults:
-    _controller: '\Drupal\recalendar\Controller\RecalendarEndpointController::eventsEndpoint'
-    _title: 'Events Endpoint'
+    _controller: Drupal\recalendar\Controller\RecalendarEndpointController::eventsEndpoint
+    _title: Events Endpoint
   requirements:
-    _permission: 'access content'
+    _permission: access content
 recalendar.recalendar_settings:
-  path: '/admin/config/recalendar'
+  path: /admin/config/recalendar
   defaults:
-    _form: '\Drupal\recalendar\Form\RecalendarSettings'
-    _title: 'RecalendarSettings'
+    _form: Drupal\recalendar\Form\RecalendarSettings
+    _title: Recalendar Settings
   requirements:
     _permission: 'admin recalendar settings'
   options:
     _admin_route: TRUE
+
 route_callbacks:
-  - '\Drupal\recalendar\Routing\RecalendarRoutes::routes'
+  - Drupal\recalendar\Routing\RecalendarRoutes::buildRoutes

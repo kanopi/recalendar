@@ -15,7 +15,7 @@ class RecalendarSettings extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  protected function getEditableConfigNames() {
+  protected function getEditableConfigNames(): array {
     return [
       'recalendar.recalendarsettings',
     ];
@@ -24,15 +24,16 @@ class RecalendarSettings extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormId() {
+  public function getFormId(): string {
     return 'recalendar_settings';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
     $config = $this->config('recalendar.recalendarsettings');
+
     $form['recalendar_alias'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Recalendar Alias'),
@@ -42,13 +43,14 @@ class RecalendarSettings extends ConfigFormBase {
       '#default_value' => $config->get('recalendar_alias'),
       '#required' => FALSE,
     ];
+
     return parent::buildForm($form, $form_state);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state): void {
     parent::submitForm($form, $form_state);
 
     $this->config('recalendar.recalendarsettings')
