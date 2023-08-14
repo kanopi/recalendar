@@ -38,7 +38,7 @@ class RecalendarController implements ContainerInjectionInterface {
     $storage = $this->entityTypeManager->getStorage('taxonomy_term');
 
     // Get options from Event Type taxonomy vocabulary.
-    $type_query = $storage->getQuery();
+    $type_query = $storage->getQuery()->accessCheck(TRUE);
     $type_query->condition('vid', "rec_event_type");
     $type_tids = $type_query->execute();
 
