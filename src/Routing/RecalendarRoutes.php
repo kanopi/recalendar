@@ -2,6 +2,7 @@
 
 namespace Drupal\recalendar\Routing;
 
+use Drupal\recalendar\Controller\RecalendarController;
 use Symfony\Component\Routing\Route;
 
 /**
@@ -10,43 +11,31 @@ use Symfony\Component\Routing\Route;
 class RecalendarRoutes {
 
   /**
-   * {@inheritdoc}
+   * Build the routes.
+   *
+   * @return array
+   *   The routes.
    */
-  public function routes() {
-
-    $routes = [];
-
+  public function buildRoutes(): array {
     // Get the currently configured Recalendar alias.
     $config = \Drupal::config('recalendar.recalendarsettings');
     $setting = $config->get('recalendar_alias');
 
     // If recalendar alias hasn't been set.
-    if ($setting === '') {
-      $alias = 'recalendar';
-    }
-    else {
-      $alias = $setting;
-    }
-    $routes = [];
+    $alias = $setting === '' ? 'recalendar' : $setting;
 
-    // Returns an array of Route objects.
-    $routes['recalendar.events'] = new Route(
-      // Path to attach this route to:
-      $alias,
-
-      // Route defaults:
-      [
-        '_controller' => '\Drupal\recalendar\Controller\RecalendarController::events',
-        '_title' => $alias,
-      ],
-
-      // Route requirements:
-      [
-        '_permission'  => 'access content',
-      ]
-    );
-
-    return $routes;
+    return [
+      'recalendar.events' => new Route(
+        path: $alias,
+        defaults: [
+          '_controller' => RecalendarController::class . '::events',
+          '_title' => $alias,
+        ],
+        requirements: [
+          '_permission'  => 'access content',
+        ]
+      )
+    ];
   }
 
 }

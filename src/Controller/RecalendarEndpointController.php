@@ -2,27 +2,25 @@
 
 namespace Drupal\recalendar\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Provides endpoints for events and meetings data (consumed by calendar).
  */
-class RecalendarEndpointController extends ControllerBase {
+class RecalendarEndpointController {
 
   /**
    * Returns a simple page from a static JSON file.
    *
-   * @return string
+   * @return \Symfony\Component\HttpFoundation\Response
    *   Json data.
    */
-  public function eventsEndpoint() {
-
+  public function eventsEndpoint(): Response {
     $data = file_get_contents('public://data/data_export_events.json');
     $response = new Response($data);
+    $response->headers->set('Content-type', 'application/json');
 
     return $response;
-
   }
 
 }
