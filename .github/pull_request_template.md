@@ -1,4 +1,5 @@
 ## Description
+- [ ] Was AI used in this pull request?
 > As a developer, I need to start with a story.
 
 _A few sentences describing the overall goals of the pull request's commits.
@@ -32,3 +33,4 @@ new dependencies, new scripts, etc._
 **New dev dependencies**:
 
 - `dependency` : dependency details
+
